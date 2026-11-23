@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel inicial</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>Painel inicial</h1>
+    <button id="settings-button" type="button">Personalizar</button>
+  </header>
+  <div class="grid">
+    <!-- Relógio -->
+    <div class="card" data-widget="clock">
+      <h2>Hora local</h2>
+      <div id="clock">00:00</div>
+      <div id="date">A carregar...</div>
+    </div>
+
+    <!-- Estado do servidor -->
+    <div class="card" data-widget="system">
+      <h2>Estado do servidor</h2>
+      <div class="system-stat">
+        <div class="system-stat-header">
+          <label for="cpu-usage">Processador</label>
+          <span id="cpu-usage-text">—</span>
+        </div>
+        <progress id="cpu-usage" max="100" value="0"></progress>
+      </div>
+      <div class="system-stat">
+        <div class="system-stat-header">
+          <label for="ram-usage">Memória RAM</label>
+          <span id="ram-usage-text">—</span>
+        </div>
+        <progress id="ram-usage" max="100" value="0"></progress>
+      </div>
+      <p id="system-stats-message" class="status-message" role="status" aria-live="polite">A carregar utilização do servidor...</p>
+    </div>
+
+    <!-- Meteorologia -->
+    <div class="card" data-widget="weather">
+      <h2>Meteorologia (Porto)</h2>
+      <div id="weather-temp">--°C</div>
+      <div id="weather-desc">A carregar previsão...</div>
+      <div id="weather-forecast" class="weather-forecast" aria-live="polite"></div>
+    </div>
+
+    <!-- Ligações rápidas -->
+    <div class="card" data-widget="quick-links">
+      <div class="quick-launch-header">
+        <h2>Acesso rápido</h2>
+        <button id="quick-links-menu-button" class="icon-button" type="button" aria-label="Gerir ligações rápidas" aria-controls="quick-links-menu" aria-expanded="false">⋯</button>
+      </div>
+      <dialog id="quick-links-menu" class="quick-links-dialog" aria-labelledby="quick-links-dialog-title">
+        <div class="quick-links-dialog-header">
+          <h2 id="quick-links-dialog-title">Gerir ligações rápidas</h2>
+          <button id="quick-links-close-button" class="icon-button" type="button" aria-label="Fechar">×</button>
+        </div>
+        <form id="quick-link-form">
+          <input id="quick-link-edit-index" type="hidden" value="">
+          <label for="quick-link-url">Endereço do site</label>
+          <input id="quick-link-url" type="text" inputmode="url" autocomplete="url" placeholder="https://exemplo.pt" required>
+          <label for="quick-link-name">Nome (opcional)</label>
+          <input id="quick-link-name" type="text" placeholder="Detetado a partir do site">
+          <div class="quick-link-form-actions">
+            <button id="quick-link-submit" type="submit">Adicionar ligação</button>
+            <button id="quick-link-cancel-edit" class="secondary-button" type="button" hidden>Cancelar edição</button>
+          </div>
+          <p id="quick-link-message" role="status" aria-live="polite"></p>
+        </form>
+        <ul id="quick-link-manage-list" class="quick-link-manage-list"></ul>
+      </dialog>
+      <div id="quick-links" class="links"></div>
+    </div>
+
+    <!-- Tarefas guardadas -->
+    <div class="card" data-widget="tasks">
+      <h2>Tarefas</h2>
+      <form id="task-form" class="todo-input">
+        <div class="task-field">
+          <label for="task-input">Informação</label>
+          <input id="task-input" placeholder="Adicionar uma tarefa..." required>
+        </div>
+        <div class="task-field">
+          <label for="task-due-date">Data</label>
+          <input id="task-due-date" type="date">
+        </div>
+        <div class="task-field">
+          <label for="task-priority">Prioridade</label>
+          <select id="task-priority">
+            <option value="low">Baixa</option>
+            <option value="medium" selected>Média</option>
+            <option value="high">Alta</option>
+          </select>
+        </div>
+        <button type="submit">Adicionar</button>
+      </form>
+      <p id="task-message" class="status-message" role="status" aria-live="polite"></p>
+      <ul id="task-list"></ul>
+    </div>
+  </div>
+
+  <dialog id="settings-dialog" class="dashboard-dialog" aria-labelledby="settings-dialog-title">
+    <div class="dialog-header">
+      <h2 id="settings-dialog-title">Personalizar painel</h2>
+      <button id="settings-close-button" class="icon-button" type="button" aria-label="Fechar">×</button>
+    </div>
+    <section class="settings-section" aria-labelledby="appearance-title">
+      <h3 id="appearance-title">Aspeto</h3>
+      <label for="theme-select">Tema</label>
+      <select id="theme-select">
+        <option value="dark">Escuro</option>
+        <option value="light">Claro</option>
+      </select>
+      <label for="accent-color">Cor de destaque</label>
+      <input id="accent-color" type="color" value="#3b82f6">
+    </section>
+    <section class="settings-section" aria-labelledby="widgets-title">
+      <h3 id="widgets-title">Cartões</h3>
+      <p class="settings-hint">Mostra, oculta ou altera a ordem dos cartões.</p>
+      <ul id="widget-settings-list" class="widget-settings-list"></ul>
+    </section>
+    <p id="settings-message" class="status-message" role="status" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>
