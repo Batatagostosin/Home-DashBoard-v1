@@ -10,7 +10,7 @@ While the interface displays all information in **Portuguese** and comes pre-con
 - **App Quick-Launch:** Shortcuts to open configured local applications directly from the dashboard.
 - **Smart Task Manager:** Task list that automatically sorts items by **date** and **priority**.
 - **Server System Metrics:** Live monitoring of **CPU** and **RAM** usage on the host machine running the Python backend.
-- **Costumization:** Choose between modes and colors for the main screen.
+- **Costumization:** Choose between **modes** and **colors** for the main screen.
 
 ## Tech Stack
 
