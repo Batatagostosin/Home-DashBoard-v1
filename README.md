@@ -16,3 +16,6 @@ While the interface displays all information in **Portuguese** and comes pre-con
 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Python 3.x (`FastAPI` + `psutil` for hardware metrics)
+
+> **Disclaimer:** I'll be doing a tutorial on how to use Home Assistant and use a long duration token, so you can maintain the same UI in this Projet.
+> Make sure you check it out **https://www.youtube.com/@updtjp**
